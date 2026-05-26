@@ -7,15 +7,16 @@ export type Account = {
   readonly createdAt: string;
 };
 
-export type TransactionType = "withdraw" | "deposit" | "transfer";
+export type TransactionType = "withdrawal" | "deposit" | "transfer";
 
 export type Transaction = {
   readonly id: string;
   readonly amount: number;
+  readonly description: string;
   readonly balanceAfter: number;
   readonly accountId: string;
   readonly type: TransactionType;
-  readonly timestamp: string;
+  readonly date: string;
 };
 
 export type Transfer = {
