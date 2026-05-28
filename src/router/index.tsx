@@ -1,10 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LoginPage, ProtectedRoute } from "../features/auth";
+import AccountSummaryCard from "../features/accounts/AccountSummaryCard";
+import { mockAccounts } from "../services/mockData";
 
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: <LoginPage />,
+    // element: <LoginPage />,
+    element: <AccountSummaryCard account={mockAccounts[1]} />,
   },
   {
     element: <ProtectedRoute />,
