@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { Button, Card, Input } from "../../components/ui";
+import { useNavigate } from "react-router-dom";
 
 type CredentialsType = {
   email: string;
@@ -13,6 +14,7 @@ export default function LoginPage() {
     password: "",
   });
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   function handleCredentialsInput(e: React.ChangeEvent<HTMLInputElement>) {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -20,7 +22,8 @@ export default function LoginPage() {
 
   function handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
     e.preventDefault();
-    login(credentials?.email, credentials?.password);
+    const isLogged = login(credentials?.email, credentials?.password);
+    if (isLogged) navigate("/dashboard");
   }
 
   return (
