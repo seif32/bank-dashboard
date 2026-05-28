@@ -1,26 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LoginPage, ProtectedRoute } from "../features/auth";
-import AccountSummaryCard from "../features/accounts/AccountSummaryCard";
-import { mockAccounts, mockTransactions } from "../services/mockData";
-import RecentTransactions from "../features/transactions/RecentTransactions";
+import DashboardPage from "../pages/DashboardPage";
 
 const router = createBrowserRouter([
   {
     path: "/login",
-    // element: <LoginPage />,
-    element: (
-      <div className="p-8">
-        <RecentTransactions
-          accounts={mockAccounts}
-          transactions={mockTransactions}
-        />
-      </div>
-    ),
+    element: <LoginPage />,
   },
   {
     element: <ProtectedRoute />,
     children: [
-      { path: "/dashboard", element: <h1>dashboard</h1> },
+      { path: "/dashboard", element: <DashboardPage /> },
       { path: "/accounts", element: <h1>accounts</h1> },
       { path: "/accounts/:id", element: <h1>account id</h1> },
       { path: "/transactions", element: <h1>transactions</h1> },
