@@ -1,7 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 import type { User } from "../types";
 import { mockUser } from "../services/mockData";
-import { useNavigate } from "react-router-dom";
 
 type AuthContextType = {
   isLogged: boolean;
@@ -17,20 +16,21 @@ type AuthProviderProps = {
 export const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [user, setUser] = useState<User | null>(null);
+  const userLocalStorage = JSON.parse(localStorage.getItem("user") ?? "null");
+  const [user, setUser] = useState<User | null>(userLocalStorage);
 
   function login(email: string, password: string): boolean {
     if (email === "seif@gmail.com" && password === "password") {
       setUser(mockUser);
-      console.log("AuthContext: Logged in✅");
+      localStorage.setItem("user", JSON.stringify(mockUser));
       return true;
     }
-    console.log("AuthContext: Couldnt logged in❌");
     return false;
   }
 
   function logout() {
     setUser(null);
+    localStorage.removeItem("user");
   }
 
   const isLogged = user !== null;
