@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LoginPage, ProtectedRoute } from "../features/auth";
 import DashboardPage from "../pages/DashboardPage";
+import AccountsPage from "../pages/AccountsPage";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       { path: "/dashboard", element: <DashboardPage /> },
-      { path: "/accounts", element: <h1>accounts</h1> },
+      { path: "/accounts", element: <AccountsPage /> },
       { path: "/accounts/:id", element: <h1>account id</h1> },
       { path: "/transactions", element: <h1>transactions</h1> },
       { path: "/transfers", element: <h1>transfers</h1> },

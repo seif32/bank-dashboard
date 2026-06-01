@@ -12,7 +12,7 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div className="bg-gray-50 px-6 py-8 space-y-8 max-w-7xl mx-auto">
+    <div className="bg-stone-50 px-6 py-8 space-y-8 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
       <div>
         <span className="text-4xl font-bold">
