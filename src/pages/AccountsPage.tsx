@@ -5,9 +5,17 @@ import { formatCurrency } from "../utils";
 import { useNavigate } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { badgeVariantMap } from "../features/accounts/accountUtils";
+import type { Account } from "../types";
 
 export default function AccountsPage() {
   const navigate = useNavigate();
+
+  const lastViewedAccountId = sessionStorage.getItem("lastViewedAccountId");
+
+  function handleClickAccount(account: Account) {
+    sessionStorage.setItem("lastViewedAccountId", account.id);
+    navigate(`/accounts/${account.id}`);
+  }
 
   return (
     <div className="bg-stone-50 px-6 py-8 max-w-7xl mx-auto min-h-screen space-y-3">
@@ -16,8 +24,8 @@ export default function AccountsPage() {
         {mockAccounts.map((account) => {
           return (
             <Card
-              className=" flex justify-between  py-4 hover:shadow-md transition-shadow cursor-pointer "
-              onClick={() => navigate(`/accounts/${account.id}`)}
+              className=" relative flex justify-between  py-4 hover:shadow-md transition-shadow cursor-pointer "
+              onClick={() => handleClickAccount(account)}
               key={account.id}
             >
               <div className="flex flex-col items-start justify-between gap-1">
@@ -38,6 +46,11 @@ export default function AccountsPage() {
                 </p>
                 <ChevronRight className="text-gray-400 w-4 h-4" />
               </div>
+              {lastViewedAccountId === account.id && (
+                <Badge variant="info" className="absolute left-0 -top-1 ">
+                  last viewed
+                </Badge>
+              )}
             </Card>
           );
         })}

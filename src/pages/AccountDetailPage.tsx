@@ -1,17 +1,13 @@
 import { useParams } from "react-router-dom";
 import { mockAccounts, mockTransactions } from "../services/mockData";
 import { Badge, Card } from "../components/ui";
-import { badgeVariantMap } from "../features/accounts/accountUtils";
 import { format } from "date-fns";
 import { formatCurrency } from "../utils";
-import { transactionTypeBadge } from "../features/transactions/transactionUtils";
-import type { TransactionType } from "../types";
-
-const transactionAmountColor: Record<TransactionType, string> = {
-  deposit: "text-green-700",
-  withdrawal: "text-red-700",
-  transfer: "text-gray-900",
-};
+import {
+  transactionAmountColor,
+  transactionTypeBadge,
+} from "../features/transactions";
+import { badgeVariantMap } from "../features/accounts";
 
 export default function AccountDetailPage() {
   const { id } = useParams();

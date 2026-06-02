@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { LoginPage, ProtectedRoute } from "../features/auth";
-import DashboardPage from "../pages/DashboardPage";
-import AccountsPage from "../pages/AccountsPage";
-import AccountDetailPage from "../pages/AccountDetailPage";
+import { AccountDetailPage, AccountsPage, DashboardPage } from "../pages";
 
 const router = createBrowserRouter([
   {

@@ -8,3 +8,9 @@ export const transactionTypeBadge: Record<
   withdrawal: "danger",
   transfer: "info",
 };
+
+export const transactionAmountColor: Record<TransactionType, string> = {
+  deposit: "text-green-700",
+  withdrawal: "text-red-700",
+  transfer: "text-gray-900",
+};

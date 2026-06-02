@@ -1,1 +1,5 @@
-export { default as RecentTransactions } from "./RecentTransactions.tsx";
+export { default as RecentTransactions } from "./RecentTransactions";
+export {
+  transactionTypeBadge,
+  transactionAmountColor,
+} from "./transactionUtils";
