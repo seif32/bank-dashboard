@@ -59,3 +59,8 @@ export type ExchangeRate = {
 export type ApiResponse<T> =
   | { type: "success"; data: T }
   | { type: "failure"; error: string };
+
+export type FetchState<T> =
+  | { type: "success"; data: T }
+  | { type: "error"; error: string }
+  | { type: "loading" };
