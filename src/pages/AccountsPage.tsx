@@ -1,17 +1,10 @@
 import { format } from "date-fns";
 import { Badge, Card } from "../components/ui";
 import { mockAccounts } from "../services/mockData";
-import type { Account } from "../types";
 import { formatCurrency } from "../utils";
 import { useNavigate } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-
-const badgeVariantMap: Record<Account["type"], "info" | "success" | "warning"> =
-  {
-    checking: "info",
-    savings: "success",
-    investment: "warning",
-  };
+import { badgeVariantMap } from "../features/accounts/accountUtils";
 
 export default function AccountsPage() {
   const navigate = useNavigate();

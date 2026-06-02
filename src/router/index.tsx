@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { LoginPage, ProtectedRoute } from "../features/auth";
 import DashboardPage from "../pages/DashboardPage";
 import AccountsPage from "../pages/AccountsPage";
+import AccountDetailPage from "../pages/AccountDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/dashboard", element: <DashboardPage /> },
       { path: "/accounts", element: <AccountsPage /> },
-      { path: "/accounts/:id", element: <h1>account id</h1> },
+      { path: "/accounts/:id", element: <AccountDetailPage /> },
       { path: "/transactions", element: <h1>transactions</h1> },
       { path: "/transfers", element: <h1>transfers</h1> },
       { path: "/currency", element: <h1>currency</h1> },

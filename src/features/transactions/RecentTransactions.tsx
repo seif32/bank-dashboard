@@ -1,7 +1,8 @@
 import { format } from "date-fns";
-import type { Account, Transaction, TransactionType } from "../../types";
+import type { Account, Transaction } from "../../types";
 import { Badge } from "../../components/ui";
 import { formatCurrency } from "../../utils";
+import { transactionTypeBadge } from "./transactionUtils";
 
 type RecentTransactionsProps = {
   transactions: Transaction[];
@@ -12,15 +13,6 @@ export default function RecentTransactions({
   transactions,
   accounts,
 }: RecentTransactionsProps) {
-  const transactionTypeBadge: Record<
-    TransactionType,
-    "info" | "danger" | "warning" | "success"
-  > = {
-    deposit: "success",
-    withdrawal: "danger",
-    transfer: "info",
-  };
-
   return (
     <div>
       <p className="text-xl font-semibold">Recent Transactions</p>
