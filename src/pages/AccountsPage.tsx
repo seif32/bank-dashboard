@@ -47,7 +47,7 @@ export default function AccountsPage() {
                 <ChevronRight className="text-gray-400 w-4 h-4" />
               </div>
               {lastViewedAccountId === account.id && (
-                <Badge variant="info" className="absolute left-0 -top-1 ">
+                <Badge variant="danger" className="absolute left-0 -top-1 ">
                   last viewed
                 </Badge>
               )}
