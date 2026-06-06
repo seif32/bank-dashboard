@@ -26,11 +26,15 @@ export async function fetchExchangeRate(): Promise<ApiResponse<ExchangeRate>> {
 
 function isExchangeRate(data: unknown): data is ExchangeRate {
   if (typeof data === "object" && data !== null) {
-    if ("base" in data && "rates" in data && "timestamp" in data) {
+    if (
+      "base_code" in data &&
+      "rates" in data &&
+      "time_last_update_utc" in data
+    ) {
       if (
-        typeof data.base === "string" &&
+        typeof data.base_code === "string" &&
         typeof data.rates === "object" &&
-        typeof data.timestamp === "string"
+        typeof data.time_last_update_utc === "string"
       ) {
         return true;
       }
