@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { mockAccounts, mockTransactions } from "../services/mockData";
-import { Badge, Card } from "../components/ui";
+import { Badge, Card, PageWrapper } from "../components/ui";
 import { format } from "date-fns";
 import { formatCurrency } from "../utils";
 import {
@@ -21,7 +21,7 @@ export default function AccountDetailPage() {
   );
 
   return (
-    <div className="bg-stone-50 max-w-7xl px-6 py-8 mx-auto min-h-screen space-y-6">
+    <PageWrapper>
       <Card>
         <div className="flex gap-2 items-center">
           <p className="text-2xl font-bold text-gray-900">{account.name}</p>
@@ -66,6 +66,6 @@ export default function AccountDetailPage() {
           );
         })}
       </div>
-    </div>
+    </PageWrapper>
   );
 }
