@@ -51,9 +51,9 @@ export type Currency = {
 };
 
 export type ExchangeRate = {
-  base: string;
+  base_code: string;
   rates: Record<string, number>;
-  timestamp: string;
+  time_last_update_utc: string;
 };
 
 export type ApiResponse<T> =

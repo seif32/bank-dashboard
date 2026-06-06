@@ -3,6 +3,7 @@ import { AccountSummaryCard } from "../features/accounts";
 import { RecentTransactions } from "../features/transactions";
 import { mockAccounts, mockTransactions } from "../services/mockData";
 import { formatCurrency } from "../utils";
+import { PageWrapper } from "../components/ui";
 
 export default function DashboardPage() {
   const totalBalance = useMemo(() => {
@@ -12,7 +13,7 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <div className="bg-stone-50 px-6 py-8 space-y-8 max-w-7xl mx-auto">
+    <PageWrapper>
       <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
       <div>
         <span className="text-4xl font-bold">
@@ -29,6 +30,6 @@ export default function DashboardPage() {
         accounts={mockAccounts}
         transactions={mockTransactions}
       />
-    </div>
+    </PageWrapper>
   );
 }

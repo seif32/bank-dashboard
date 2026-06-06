@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { Badge, Card } from "../components/ui";
+import { Badge, Card, PageWrapper } from "../components/ui";
 import { mockAccounts } from "../services/mockData";
 import { formatCurrency } from "../utils";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ export default function AccountsPage() {
   }
 
   return (
-    <div className="bg-stone-50 px-6 py-8 max-w-7xl mx-auto min-h-screen space-y-3">
+    <PageWrapper>
       <h1 className="text-2xl font-bold text-gray-900">Accounts</h1>
       <div className="space-y-3">
         {mockAccounts.map((account) => {
@@ -55,6 +55,6 @@ export default function AccountsPage() {
           );
         })}
       </div>
-    </div>
+    </PageWrapper>
   );
 }
