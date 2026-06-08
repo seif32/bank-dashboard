@@ -6,5 +6,5 @@ export default function ProtectedRoute() {
 
   if (!isLogged) return <Navigate to={"/login"} />;
 
-  if (isLogged) return <Outlet />;
+  return <Outlet />;
 }
