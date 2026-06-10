@@ -8,6 +8,7 @@ import {
 } from "../pages";
 import AppLayout from "../components/AppLayout";
 import TransfersPage from "../pages/TransfersPage";
+import TransactionsPage from "../pages/TransactionsPage";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
           { path: "/accounts", element: <AccountsPage /> },
           { path: "/accounts/:id", element: <AccountDetailPage /> },
           { path: "/currency", element: <CurrencyPage /> },
-          { path: "/transactions", element: <h1>transactions</h1> },
+          { path: "/transactions", element: <TransactionsPage /> },
           { path: "/transfers", element: <TransfersPage /> },
           { path: "/settings", element: <h1>settings</h1> },
           { path: "/notifications", element: <h1>notifications</h1> },
