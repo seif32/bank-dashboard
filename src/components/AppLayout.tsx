@@ -5,7 +5,7 @@ export default function AppLayout() {
   return (
     <div>
       <NavBar />
-      <main className="pt-15">
+      <main className="pt-22">
         <Outlet />
       </main>
       <span>footer</span>
