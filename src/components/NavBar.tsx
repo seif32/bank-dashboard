@@ -6,6 +6,7 @@ const navs: NavItem[] = [
   { label: "Dashboard", to: "/dashboard" },
   { label: "Accounts", to: "/accounts" },
   { label: "Transfers", to: "/transfers" },
+  { label: "Transactions", to: "/transactions" },
   { label: "Currency Converter", to: "/currency" },
 ];
 
