@@ -7,6 +7,7 @@ import {
   DashboardPage,
 } from "../pages";
 import AppLayout from "../components/AppLayout";
+import TransfersPage from "../pages/TransfersPage";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
           { path: "/accounts/:id", element: <AccountDetailPage /> },
           { path: "/currency", element: <CurrencyPage /> },
           { path: "/transactions", element: <h1>transactions</h1> },
-          { path: "/transfers", element: <h1>transfers</h1> },
+          { path: "/transfers", element: <TransfersPage /> },
           { path: "/settings", element: <h1>settings</h1> },
           { path: "/notifications", element: <h1>notifications</h1> },
         ],
