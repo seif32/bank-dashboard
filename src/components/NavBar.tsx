@@ -5,6 +5,7 @@ type NavItem = { label: string; to: string };
 const navs: NavItem[] = [
   { label: "Dashboard", to: "/dashboard" },
   { label: "Accounts", to: "/accounts" },
+  { label: "Transfers", to: "/transfers" },
   { label: "Currency Converter", to: "/currency" },
 ];
 
