@@ -20,7 +20,7 @@ export default function Modal({
 
   return (
     <div
-      className="bg-black/50 grid place-items-center h-screen"
+      className="bg-black/50 grid place-items-center inset-0 fixed z-50"
       onClick={onClose}
     >
       <Card

@@ -1,8 +1,13 @@
 import type { SelectHTMLAttributes } from "react";
 
 type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
-  options: string[];
+  options: OptionsType[];
   label?: string;
+};
+
+type OptionsType = {
+  label: string;
+  value: string;
 };
 
 export default function Select({
@@ -24,8 +29,8 @@ export default function Select({
       >
         {options.map((option) => {
           return (
-            <option value={option} key={option}>
-              {option}
+            <option value={option.value} key={option.value}>
+              {option.label}
             </option>
           );
         })}
