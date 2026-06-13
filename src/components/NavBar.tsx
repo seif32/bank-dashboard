@@ -1,4 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { useNotifications } from "../context/NotificationContext";
+import { Bell } from "lucide-react";
+import { Badge } from "./ui";
 
 type NavItem = { label: string; to: string };
 
@@ -11,9 +14,10 @@ const navs: NavItem[] = [
 ];
 
 export default function NavBar() {
+  const { unreadCount } = useNotifications();
   return (
-    <nav className="bg-gray-900 fixed w-full z-10 px-4 py-6">
-      <div className=" flex  gap-8">
+    <nav className="bg-gray-900 fixed w-full z-10 px-4 py-6 flex justify-between">
+      <div className=" flex gap-8">
         {navs.map((nav) => (
           <NavLink
             className={({ isActive }) =>
@@ -26,6 +30,14 @@ export default function NavBar() {
           </NavLink>
         ))}
       </div>
+      <NavLink to={"/notifications"} className="text-gray-400 relative">
+        <Bell />
+        {unreadCount > 0 && (
+          <Badge variant="danger" className="absolute -top-3 -right-2 ">
+            {unreadCount}
+          </Badge>
+        )}
+      </NavLink>
     </nav>
   );
 }
