@@ -5,6 +5,9 @@ import { Button, Card, Input, Select } from "../../components/ui";
 import { mockAccounts } from "../../services/mockData";
 import { useState } from "react";
 import TransferConfirmModal from "./TransferConfirmModal";
+import { useNotifications } from "../../context/NotificationContext";
+import type { Notification } from "../../types";
+import { formatCurrency } from "../../utils";
 
 export default function TransferForm() {
   const {
@@ -18,12 +21,22 @@ export default function TransferForm() {
   const [pendingTransfer, setPendingTransfer] =
     useState<TransferFormData | null>(null);
 
+  const { addNotification } = useNotifications();
+
   function handlePendingSubmit(data: TransferFormData) {
     setPendingTransfer(data);
   }
 
   function handleConfirmTransfer() {
-    console.log(pendingTransfer);
+    const notification: Notification = {
+      id: crypto.randomUUID(),
+      title: `Transfer Completed`,
+      subtitle: `Amount of ${formatCurrency(pendingTransfer?.amount ?? 0)} transferred from account ${mockAccounts.find((account) => account.id === pendingTransfer?.fromAccountId)?.name} to account ${mockAccounts.find((account) => account.id === pendingTransfer?.toAccountId)?.name}`,
+      isRead: false,
+      timestamp: new Date().toISOString(),
+      type: "transaction",
+    };
+    addNotification(notification);
     setPendingTransfer(null);
   }
 
