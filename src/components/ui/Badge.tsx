@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from "react";
 
-type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
+export type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
   variant: "success" | "warning" | "danger" | "info";
 };
 
