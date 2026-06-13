@@ -5,10 +5,11 @@ import {
   AccountsPage,
   CurrencyPage,
   DashboardPage,
+  NotificationsPage,
+  TransactionsPage,
+  TransfersPage,
 } from "../pages";
 import AppLayout from "../components/AppLayout";
-import TransfersPage from "../pages/TransfersPage";
-import TransactionsPage from "../pages/TransactionsPage";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,8 @@ const router = createBrowserRouter([
           { path: "/currency", element: <CurrencyPage /> },
           { path: "/transactions", element: <TransactionsPage /> },
           { path: "/transfers", element: <TransfersPage /> },
+          { path: "/notifications", element: <NotificationsPage /> },
           { path: "/settings", element: <h1>settings</h1> },
-          { path: "/notifications", element: <h1>notifications</h1> },
         ],
       },
     ],
