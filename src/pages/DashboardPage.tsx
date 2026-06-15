@@ -7,6 +7,7 @@ import { PageWrapper, Spinner } from "../components/ui";
 import { BalanceChart, SpendingChart } from "../features/charts";
 import { usePreferredCurrency } from "../context/PreferredCurrencyContext";
 import { convertCurrency, useExchangeRates } from "../features/currency";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 export default function DashboardPage() {
   const totalBalance = useMemo(() => {
@@ -58,8 +59,16 @@ export default function DashboardPage() {
           ))}
         </div>
         <div className="space-y-4 ">
-          <BalanceChart transactions={mockTransactions} />
-          <SpendingChart transactions={mockTransactions} />
+          <ErrorBoundary
+            fallback={<p>Balance Chart face some issues, try again later</p>}
+          >
+            <BalanceChart transactions={mockTransactions} />
+          </ErrorBoundary>
+          <ErrorBoundary
+            fallback={<p>Spending Chart face some issues, try again later</p>}
+          >
+            <SpendingChart transactions={mockTransactions} />
+          </ErrorBoundary>
         </div>
         <RecentTransactions
           accounts={mockAccounts}
