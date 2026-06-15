@@ -5,7 +5,7 @@ type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   label?: string;
 };
 
-type OptionsType = {
+export type OptionsType = {
   label: string;
   value: string;
 };
