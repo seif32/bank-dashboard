@@ -6,6 +6,7 @@ import {
   CurrencyPage,
   DashboardPage,
   NotificationsPage,
+  SettingsPage,
   TransactionsPage,
   TransfersPage,
 } from "../pages";
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
           { path: "/transactions", element: <TransactionsPage /> },
           { path: "/transfers", element: <TransfersPage /> },
           { path: "/notifications", element: <NotificationsPage /> },
-          { path: "/settings", element: <h1>settings</h1> },
+          { path: "/settings", element: <SettingsPage /> },
         ],
       },
     ],
