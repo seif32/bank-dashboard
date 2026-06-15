@@ -5,3 +5,4 @@ export { default as CurrencyPage } from "./CurrencyPage";
 export { default as NotificationsPage } from "./NotificationsPage";
 export { default as TransactionsPage } from "./TransactionsPage";
 export { default as TransfersPage } from "./TransfersPage";
+export { default as SettingsPage } from "./SettingsPage";

@@ -10,6 +10,7 @@ const navs: NavItem[] = [
   { label: "Accounts", to: "/accounts" },
   { label: "Transfers", to: "/transfers" },
   { label: "Transactions", to: "/transactions" },
+  { label: "Settings", to: "/settings" },
   { label: "Currency Converter", to: "/currency" },
 ];
 
